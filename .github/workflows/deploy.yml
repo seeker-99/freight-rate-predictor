@@ -1,0 +1,13 @@
+# .github/workflows/deploy.yml
+name: Deploy (placeholder)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Add real AWS deploy steps here later."
