@@ -1,16 +1,14 @@
-# src/database/connection.py
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# Use env var if set, else local Postgres default
+# Use env var, fall back to local Postgres with NO password (only for dev if allowed)
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://postgres:Ajay1967@localhost:5432/freight_rates",
+    "postgresql://postgres@localhost:5432/freight_rates",
 )
 
 engine = create_engine(DATABASE_URL, echo=False)
-
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
